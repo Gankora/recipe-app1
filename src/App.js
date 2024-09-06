@@ -74,26 +74,14 @@ export const App = () => {
 						>
 							Назад
 						</button>
-						{!isLastStep && (
-							<button
-								className={styles.button}
-								disabled={isLastStep}
-								onClick={handleNextStep}
-							>
-								Далее
-								{/* "Начать сначала", можно сделать этой же кнопкой, просто подменять обработчик и текст в зависимости от условия */}
-								{/* Или заменять всю кнопку в зависимости от условия */}
-							</button>
-						)}
-						{isLastStep && (
-							<button
-								className={styles.button}
-								disabled={!isLastStep}
-								onClick={handleRestart}
-							>
-								Начать сначала
-							</button>
-						)}
+						<button
+							className={styles.button}
+							onClick={!isLastStep ? handleNextStep : handleRestart}
+						>
+							{!isLastStep ? 'Далее' : 'Начать сначала'}
+							{/* "Начать сначала", можно сделать этой же кнопкой, просто подменять обработчик и текст в зависимости от условия */}
+							{/* Или заменять всю кнопку в зависимости от условия */}
+						</button>
 					</div>
 				</div>
 			</div>
